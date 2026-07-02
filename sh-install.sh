@@ -8,7 +8,7 @@ if [ $USERID -ne 0 ]; then
 fi
  #echo " i am contiting....."
  echo "installing mysql"
- dnf install mysql -y
+ dnf install mysqlhdijsadfh -y
 if [ $? -ne 0 ]; then
  echo "installing mysql...........Falied"
 exit 1
