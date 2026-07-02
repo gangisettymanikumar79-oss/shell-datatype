@@ -9,7 +9,12 @@ fi
  #echo " i am contiting....."
  echo "installing mysql"
  dnf install mysql-server -y
+if [ $? -ne 0 ]; then
+ echo "installing mysql...........Falied"
+exit 1
+else
+ echo "installing mysql...........success"
+fi
  
- echo " i am still contiting....."
 
 
