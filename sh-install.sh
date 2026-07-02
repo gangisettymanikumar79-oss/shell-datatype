@@ -1,14 +1,9 @@
 #!/bin/bash
-user=$(id -u)
-#root allow otherwise exit 
-if [ $user -gt 0 ]; then
- echo "please run this script with root access"
- exit 1
+USERID=$(id -u)
+#correct root access or not
+if [ $USERID -ne 0 ]; then
+ echo "please the run script with root access"
 
 fi
-# iam contining.......
-
-dnf install mysql -y 
-# iam still contining.......
 
 
