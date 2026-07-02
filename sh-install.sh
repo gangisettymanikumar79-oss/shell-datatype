@@ -2,20 +2,20 @@
 USERID=$(id -u)
 #correct root access or not
 if [ $USERID -ne 0 ]; then
- echo "please the run script with root access"
- exit 1
+  echo "please the run script with root access"
+  exit 1
 
 fi
  #echo " i am contiting....."
- dnf list installed mysql
+   dnf list installed mysql
 if [$? -eq 0]; then
- echo "already installed mysql ..........skipping"
+   echo "mysql is already installed..........skipping"
 else
    echo "installing mysql"
    dnf install mysql -y
 if [ $? -ne 0 ]; then
    echo "installing mysql...........Falied"
-   exit 1
+    exit 1
 else
  echo "installing mysql...........success"
 fi
