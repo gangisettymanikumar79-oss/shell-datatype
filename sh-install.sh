@@ -9,6 +9,7 @@ fi
  #echo " i am contiting....."
  echo "installing mysql"
  dnf install mysql-server -y
+ 
  echo " i am still contiting....."
 
 
