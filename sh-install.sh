@@ -7,7 +7,8 @@ if [ $USERID -ne 0 ]; then
 
 fi
  #echo " i am contiting....."
- echo "install mysql"
- dnf install mysql -y
+ echo "installing mysql"
+ dnf install mysql-server -y
+ echo " i am still contiting....."
 
 
