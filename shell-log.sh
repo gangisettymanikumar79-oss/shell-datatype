@@ -20,20 +20,20 @@ fi
 
 }
  #echo " i am contiting....."
-   dnf list installed mysql
+   dnf list installed mysql &>> $Log_FILE
 if [$? -eq 0]; then
    echo "mysql is already installed..........skipping"
 else
    echo "installing mysql"
-   dnf install mysql -y
+   dnf install mysql -y  &>> $Log_FILE
    validate mysql $?
 fi
-dnf list installed nginx
+dnf list installed nginx &>> $Log_FILE
 if [$? -eq 0]; then
    echo "nginx is already installed..........skipping"
 else
    echo "installing nginx"
-   dnf install nginx -y
+   dnf install nginx -y &>> $Log_FILE
    VALIDATE nginx $?
 
 fi
