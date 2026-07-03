@@ -21,5 +21,5 @@ validate(){
 }
 for package in $@
 do
- echo "installing $package" &>> $Log_FILE
+ echo "installing $package" 
 done
