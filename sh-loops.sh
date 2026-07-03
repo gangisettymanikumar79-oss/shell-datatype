@@ -15,10 +15,10 @@ fi
 
 validate(){
     if [ $2 -ne 0 ]; then
-        echo "$timestmp [ERROR] installing $1 is ...........$B Failed $N " | tee -a $Log_FILE
+        echo -e "$timestmp [ERROR] installing $1 is ...........$B Failed $N " | tee -a $Log_FILE
         exit 1
     else
-        echo "$timestmp [INFO] installing $1 is ...........$G success $N" | tee -a $Log_FILE
+        echo -e "$timestmp [INFO] installing $1 is ...........$G success $N" | tee -a $Log_FILE
     fi
 }
 
@@ -31,6 +31,6 @@ do
         dnf install "$package" -y &>> $Log_FILE
         validate "$package" $?
     else
-        echo "$timestmp [INFO] $package is already installed...........$y skipping $N" | tee -a $Log_FILE
+        echo -e "$timestmp [INFO] $package is already installed...........$y skipping $N" 
     fi
 done
