@@ -21,5 +21,13 @@ validate(){
 }
 for package in $@
 do
- echo "installing $package" 
+        echo "installing $package" &>> $Log_FILE
+            dnf list installing $package
+    if [ $? -ne 0 ]; then
+        echo "$package installing already...........skipping"
+            validate "$package" $?
+    else
+        echo "installing $package"
+           validate "$package" $?
+    fi
 done
