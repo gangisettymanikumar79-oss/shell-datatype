@@ -12,25 +12,25 @@ fi
 # second arg -> exit code
 validate(){
     if [ $2 -ne 0 ]; then
-   echo "installing $1...........Falied"
+   echo "installing $1...........Falied" | tee -a $Log_FILE
     exit 1
 else
- echo "installing $1...........success"
+ echo "installing $1...........success"  | tee -a $Log_FILE
 fi
 
 }
  #echo " i am contiting....."
    dnf list installed mysql &>> $Log_FILE
 if [ $? -eq 0 ]; then
-   echo "mysql is already installed..........skipping"
+   echo "mysql is already installed..........skipping" | tee -a $Log_FILE
 else
    echo "installing mysql"
    dnf install mysql -y  &>> $Log_FILE
    validate mysql $?
 fi
 dnf list installed nginx &>> $Log_FILE
-if [ $? -eq 0 ]; then
-   echo "nginx is already installed..........skipping"
+if [ $? -eq 0 ]; then 
+   echo "nginx is already installed..........skipping"  | tee -a $Log_FILE
 else
    echo "installing nginx"
    dnf install nginx -y &>> $Log_FILE
