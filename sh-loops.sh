@@ -12,20 +12,24 @@ fi
 # second arg -> exit code
 validate(){
     if [ $2 -ne 0 ]; then
-   echo "installing $1...........Falied" 
-    exit 1
-else
- echo "installing $1...........success"  
-fi
+       echo "installing $1...........Falied" 
+          exit 1
+    else
+        echo "installing $1...........success"  
+    fi
 
 }
 for package in $@
-do 
-if [ $? -ne 0 ]; then
- echo "installing $package"
- dnf list intalling $package .........skipping
-else
- dnf list intalling $package .........skipping
-fi 
+do
+ 
+      dnf list installing "$package" &>> $Log_FILE
+    if [ $? -ne 0 ]; then
+        echo "$package installing already...............skipping"
+    else
+       echo "installing $package"
+         dnf install "$package" -y &>> $Log_FILE
+        validate "$package" $?
 
+    fi
+done
  
