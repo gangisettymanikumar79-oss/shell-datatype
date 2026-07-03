@@ -12,6 +12,8 @@ Yellow='\e[33m'
 Blue='\e[34m'
 NC='\e[0m'   # No Color / reset
 
+trap 'echo "error at $LINENO", command: $BASH_COMMAND"' ERR
+
 if [ $USERID -ne 0 ]; then
   echo "please run the script with root access"
   exit 1
