@@ -37,5 +37,3 @@ else
    VALIDATE nginx $?
 
 fi
-
-
